@@ -1,15 +1,24 @@
 language: python
 python:
-  - 2.7
-  - pypy
+- 2.7
+- pypy
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - echo "TODO"
+- echo "TODO"
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/572693d32024977d985a
-    on_success: always  # options: [always|never|change] default: always
-    on_failure: always  # options: [always|never|change] default: always
-    on_start: always     # options: [always|never|change] default: always
+    - https://webhooks.gitter.im/e/572693d32024977d985a
+    on_success: always
+    on_failure: always
+    on_start: always
+deploy:
+  provider: openshift
+  user: jgoncalv@redhat.com
+  password:
+    secure: F3NTfIKHahAL/aR+24Im1vmomsuXcMEYXMh6OMjE1DkHuyC4htFa7oavKw1VQuXKHiTsf/K0E6bkT4oyhzsLNft9cEB3hLh5iPBGQxOeHpy1gfMNenzyt5vpYAjR6f8eC+ADWq09BjoQVSat9ZrGiYgqxH7Fz5Rq+Xc/YmcPHqPjz/0I5J3MwVaLock23+sHmSWLWsA3mWh8Qt1bdKjmToxoMc8FYQBOelF6VT0zCoMhY2z8qdwvM6oO1a8ZiLKa3/hPoNI0qUBt1So3rt1qQ3gfG+V8nRKWFvFP7Pl1x3F2A1yEJjnWbxWoWDOQ+7hVRpjnK5KrvHaAjOpgsIVCujN6bzAvj8MkrWg2moFyEauZdRodvnmFlIITco//i0Sq5OHpgmeqhQaSf1CK2NR0KK/7vzCgpLPKVUJwwZsrx4w9LneSO106Hc9XD72oFVdKW91JszAwT6vLxcD0UZTLF2/QsOdx/Wd+11brNMJcOmGDRGurxUncw/6kFUIQjMCw+pDGA0pgXycuXdKxUWwrNJrdVXPuoI0433TLUOsl+jUbXrnb6ZHu8SbytstNAUUAfvoTGks8BhykK1nGZ3HXqFh3udhivc+uIRrtYDgS9e2SAtsvUaNneRxJJZGcp76ZuuHqZLJ/wMIF0Li6ukxtp9h2AMZakwKTXkEybojLYgY=
+  app: pythondeploys
+  domain: 'jgoncalv'
+  on:
+    repo: jsvgoncalves/python-deploys
