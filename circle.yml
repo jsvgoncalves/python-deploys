@@ -1,0 +1,40 @@
+## Customize the test machine
+machine:
+  python:
+    version: 2.7.5
+
+  # Override /etc/hosts
+  hosts:
+    circlehost: 127.0.0.1
+    # dev.mycompany.com: 127.0.0.1
+
+  # Add some environment variables
+  #environment:
+  #  CIRCLE_ENV: test
+  #  DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+
+## Customize dependencies
+dependencies:
+  override:
+    - pip install -r requirements.txt # install from a different package manager
+
+## Customize database setup
+database:
+  override:
+    - echo "test"
+
+## Customize test commands
+test:
+  override:
+    - echo "test"
+
+## Customize deployment commands
+# deployment:
+#   override:
+#     - echo "deployment"
+
+## Custom notifications
+#notify:
+#  webhooks:
+#    # A list of hashes representing hooks. Only the url field is supported.
+#    - url: https://someurl.com/hooks/circle
